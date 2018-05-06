@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Application.h"
+#import "Dialog.h"
+#import "Button.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +19,12 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    Application* application = [[Application alloc] init];
+    Dialog* dialog = [[Dialog alloc] initWithHelpHandler:application];
+    Button* button = [[Button alloc] initWithHelpHandler:dialog];
+    
+    [button handleHelp];
+    [dialog handleHelp];
 }
 
 
